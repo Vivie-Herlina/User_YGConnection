@@ -1,0 +1,216 @@
+* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  
+  header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Menempatkan logo di kiri */
+    border-bottom: 2px solid #ccc;
+  }
+  
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav a {
+    margin-right: 15px;
+    color: #323232;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .login-button {
+    background-color: #323232;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .user-menu {
+    position: relative;
+  }
+  
+  .user-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .user-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+    margin-right: 10px;
+  }
+  
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #292929;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    width: 150px;
+    z-index: 1000;
+   font-family: 'Lato', sans-serif;
+  }
+  
+  .dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dropdown ul li {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .dropdown ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .dropdown ul li a:hover {
+    background-color: #000;
+  }
+  
+  .dropdown ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .isi {
+    margin-left: 60px;
+    padding: 30px;
+  }
+
+  .content {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin-left: 0; /* Align content to the left */
+    background-color: #fff;
+  }
+  
+  .content h2 {
+    margin-bottom: 30px;
+    font-size: 1.8em;
+  }
+  .date{
+    display: flex;
+  
+  }
+  #date{
+    font-size: x-large;
+  }
+  .event-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .event {
+    width: 300px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .event:hover {
+    transform: scale(1.05); /* Slightly enlarge the event card on hover */
+  }
+  
+  .event img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .event p {
+    font-weight: bold;
+    font-size: 1em;
+  }
+  
+  .event span {
+    font-size: 0.9em;
+    color: #777;
+  }
+  
+  .more-button {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  footer {
+    background-color: #292929; /* Background footer hitam */
+    color: #fff; /* Warna teks putih */
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .footer-links {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  
+  .footer-info p {
+    margin: 5px 0;
+  }

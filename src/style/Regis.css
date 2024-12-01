@@ -1,0 +1,118 @@
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Mengatur layout vertikal */
+    min-height: 100vh; /* Tinggi minimum halaman penuh viewport */
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Menempatkan logo di kiri */
+    border-bottom: 2px solid #ccc;
+}
+
+.logo {
+    height: 40px;
+}
+
+main {
+    flex: 1; /* Memastikan konten utama memenuhi ruang di antara header dan footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Memberikan jarak antara konten dan footer */
+}
+
+.reset-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px; /* Memberikan jarak antara login-container dan footer */
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.Regis {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.Regis:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #292929; /* Background footer hitam */
+    color: #fff; /* Warna teks putih */
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: auto; /* Membuat footer tetap berada di bagian bawah */
+    width: 100%; /* Memastikan footer memanjang penuh */
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}

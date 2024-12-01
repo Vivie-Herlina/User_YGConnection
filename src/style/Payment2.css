@@ -1,0 +1,271 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  /* Header and Navbar Styles */
+  header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%; /* Aligns slightly to the left for both pages */
+    padding-left: 20px; /* Adjust for uniform padding */
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav a {
+    margin-right: 15px;
+    color: #323232;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .login-button {
+    background-color: #323232;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* Positioning the search container */
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 15px; /* Optional: spacing after the Home link */
+  }
+  
+  .search-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .search-input {
+    display: none; /* Hidden initially */
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  
+  .user-menu {
+  position: relative;
+  }
+  
+  .user-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  }
+  
+  .user-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  margin-right: 10px;
+  }
+  
+  .dropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background-color: #292929;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  width: 150px;
+  z-index: 1000;
+  font-family: 'Lato', sans-serif;
+  }
+  
+  .dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+  
+  .dropdown ul li {
+  border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .dropdown ul li a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  }
+  
+  .dropdown ul li a:hover {
+  background-color: #000;
+  }
+  
+  .dropdown ul li:last-child {
+  border-bottom: none;
+  }
+  
+  
+    .payment-content {
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 20px;
+     
+    }
+    
+    .payment-content h2 {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    
+    .payment-box {
+      padding: 20px;
+    }
+    
+    .payment-box h3 {
+      font-size: 1.2em;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+    
+    .account-number {
+      font-size: 1.5em;
+      font-weight: bold;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    .validity-info {
+      font-size: 0.9em;
+      color: #555;
+      margin: 10px 0 20px;
+    }
+    
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+    
+    .copy-button, .close-button {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #fff;
+      background-color: #333;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .copy-button:hover, .close-button:hover {
+      background-color: #555;
+    }
+    
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+      background-color: #292929;
+      color: #fff;
+      border-top: 1px solid #ddd;
+    }
+    
+    .footer p {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+    
+    .footer-info p {
+      margin: 5px 0;
+    }
+  
+    /* Centers the success image */
+    .success-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+    
+  /* Zoom animation for the image */
+  .animated-image {
+      max-width: 100%;
+      height: auto;
+      animation: zoomImage 2s ease-in-out;
+    }
+    
+    /* Keyframes for zoom effect */
+    @keyframes zoomImage {
+      from {
+        transform: scale(0.5); /* Starts at half size */
+      }
+      to {
+        transform: scale(1); /* Ends at full size */
+      }
+    }
+    
+    
+    /* Centers the "point" text */
+    #point {
+      color: #FAB12F;
+      text-align: center;
+      margin-top: 50px;
+    }
+    

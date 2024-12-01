@@ -1,0 +1,348 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  /* Header and Navbar Styles */
+  header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%; /* Aligns slightly to the left for both pages */
+    padding-left: 20px; /* Adjust for uniform padding */
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav a {
+    margin-right: 15px;
+    color: #323232;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .login-button {
+    background-color: #323232;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* Positioning the search container */
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 15px; /* Optional: spacing after the Home link */
+  }
+  
+  .search-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .search-input {
+    display: none; /* Hidden initially */
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  
+  .user-menu {
+  position: relative;
+  }
+  
+  .user-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  }
+  
+  .user-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  margin-right: 10px;
+  }
+  
+  .dropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background-color: #292929;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  width: 150px;
+  z-index: 1000;
+  font-family: 'Lato', sans-serif;
+  }
+  
+  .dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+  
+  .dropdown ul li {
+  border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .dropdown ul li a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  }
+  
+  .dropdown ul li a:hover {
+  background-color: #000;
+  }
+  
+  .dropdown ul li:last-child {
+  border-bottom: none;
+  }
+  
+  .profile-container {
+    background-color: #ffffff;
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+  }
+  
+  .profile-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+    margin-right: 15px;
+  }
+  
+  .profile-info {
+    flex: 1;
+  }
+  
+  .profile-info h2 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .profile-info p {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .edit-button {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .profile-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .detail label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .detail input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  .email-section {
+    margin-top: 20px;
+  }
+  
+  .email-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .email-entry {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .email-icon {
+      width: 24px; /* Set the desired width */
+      height: 24px; /* Set the desired height */
+      display: inline-block;
+    }
+    
+    .email-info p {
+      font-size: 1em;
+      margin: 0;
+    }
+    
+    .email-info small {
+      font-size: 0.8em;
+      color: #666;
+    }
+    
+  
+  .add-email-button {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    text-align: left;
+  }
+  
+  /* Icon Image with Rounded Rectangle Background */
+  .user-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px; /* Rounded rectangle shape */
+      cursor: pointer;
+      font-weight: bold;
+  }
+  
+  .user-button .icon-img {
+      width: 24px; /* Adjust size */
+      height: 24px;
+      border-radius: 50%; /* Circle image */
+      margin-right: 10px;
+  }
+  
+  /* Icon background styling */
+  .icon-img {
+      width: 34px;
+      height: 34px;
+      background-color: #e0e0e0;
+      border-radius: 50%; /* Creates a circular background */
+      padding: 5px;
+  }
+  
+  /* Editable input styling */
+  .detail input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      color: #333;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #ffffff; /* Background color for editing */
+  }
+  .detail input:focus {
+      outline: none;
+      border-color: #333; /* Optional: change border color on focus */
+  }
+  
+  
+  .detail input:read-write {
+      background-color: #fff;
+      border: 1px solid #ccc;
+  }
+  
+  /* Add hover effect for the edit button */
+  .edit-button:hover {
+      background-color: #555;
+  }
+  
+  
+  footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #292929;
+    color: #fff;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer p {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  
+  .footer-info p {
+    margin: 5px 0;
+  }

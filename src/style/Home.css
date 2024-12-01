@@ -1,0 +1,345 @@
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Menempatkan logo di kiri */
+    border-bottom: 2px solid #ccc;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    height: 50px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-right: 15px;
+    color: #323232;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-button {
+    background-color: #323232;
+    color: #fff;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hero {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Center Text */
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    max-width: 500px;
+}
+
+.center h1 {
+    color: white;
+}
+
+.hero h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 16px;
+}
+
+/* Section Styles */
+section {
+    margin-top: 30px;
+    padding: 0 2%;
+    text-align: left;
+    overflow: hidden;
+}
+
+h3 {
+    text-align: center;
+}
+
+/* Hover Animation Effect on Images */
+.news-item img, 
+.concert-item img,
+.artist-card img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.news-item img:hover, 
+.concert-item img:hover,
+.artist-card img:hover {
+    transform: scale(1.05);
+}
+
+/* Upcoming News/Concerts Styles */
+.news-grid,
+.concert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+
+.news-item img, .concert-item img {
+    width: 430px;
+    height: 247px;
+    margin: auto;
+    display: block;
+}
+
+.new-merch {
+    margin-top: 30px;
+  }
+
+
+  .new-merch h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .merch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+
+  .merch-item {
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .merch-item:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.02);
+    transition: transform 0.5s ease;
+  }
+
+  .merch-item img {
+    width: 430px;
+    height: 247px;
+    margin: auto;
+    display: block;
+  }
+
+  .merch-item h3 {
+    font-size: 16px;
+  }
+
+/* Looking for Artists Styles */
+.artist-section {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+}
+
+.artist-card {
+    text-align: center;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artist-card img {
+    width: 160px;
+    height: 202px;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.artist-card img:hover {
+    transform: scale(1.05);
+}
+
+/* Rectangle overlay for text */
+.artist-card h3 {
+    width: 160px;
+    height: 30px;
+    margin: 0;
+    padding: 8px 0;
+    background-color: #1f1e1e;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    bottom: 3px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px -1px 5px rgba(116, 115, 115, 0.2);
+}
+
+/* More Button Styles */
+.more-link {
+    text-align: center;
+    margin: 30px;
+}
+
+.more-link a {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.more-link a:hover {
+    background-color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #292929; /* Background footer hitam */
+    color: #fff; /* Warna teks putih */
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Membuat 5 kolom */
+    gap: 20px; /* Jarak antar elemen */
+}
+
+@media (max-width: 768px) {
+    .artist-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    .artist-grid {
+        grid-template-columns: 1fr; /* 1 kolom pada layar sangat kecil */
+    }
+}
+
+
+.user-menu {
+    position: relative;
+  }
+
+  .user-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .user-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+    margin-right: 10px;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #292929;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    width: 150px;
+    z-index: 1000;
+   font-family: 'Lato', sans-serif;
+  }
+
+  .dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .dropdown ul li {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .dropdown ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .dropdown ul li a:hover {
+    background-color: #000;
+  }
+
+  .dropdown ul li:last-child {
+    border-bottom: none;
+  }

@@ -1,0 +1,279 @@
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+    background-color: #fff;
+}
+
+
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Menempatkan logo di kiri */
+    border-bottom: 2px solid #ccc;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    height: 50px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-right: 15px;
+    color: #323232;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-button {
+    background-color: #323232;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.user-menu {
+    position: relative;
+  }
+
+  .user-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .user-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+    margin-right: 10px;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #292929;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    width: 150px;
+    z-index: 1000;
+   font-family: 'Lato', sans-serif;
+  }
+
+  .dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .dropdown ul li {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .dropdown ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .dropdown ul li a:hover {
+    background-color: #000;
+  }
+
+  .dropdown ul li:last-child {
+    border-bottom: none;
+  }
+  
+.container {
+    max-width: 1200px;
+    margin: 2rem auto; /* Add margin to separate the form from other content */
+    display: flex;
+    gap: 4rem;
+    padding-top: 2rem; /* Add padding to separate from navbar */
+    padding-bottom: 2rem; /* Add padding to separate from footer */
+}
+
+.contact-info h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.contact-email {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.contact-phone {
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.contact-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.section-content {
+    color: #333;
+    line-height: 1.5;
+}
+
+.contact-form {
+    background: whitesmoke;
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Center form within its container */
+    margin: 0 auto;
+}
+
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: #666;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center; /* Center inputs horizontally */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    max-width: 600px;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #292929;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+}
+
+.submit-btn:hover {
+    background: #444;
+}
+.form-footer {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.form-footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+footer {
+    background-color: #292929; /* Background footer hitam */
+    color: #fff; /* Warna teks putih */
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}

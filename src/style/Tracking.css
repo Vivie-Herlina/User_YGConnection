@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  /* Header and Navbar Styles */
+  header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%; /* Aligns slightly to the left for both pages */
+    padding-left: 20px; /* Adjust for uniform padding */
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav a {
+    margin-right: 15px;
+    color: #323232;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .login-button {
+    background-color: #323232;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* Positioning the search container */
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 15px; /* Optional: spacing after the Home link */
+  }
+  
+  .search-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .search-input {
+    display: none; /* Hidden initially */
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  
+  .user-menu {
+  position: relative;
+  }
+  
+  .user-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  }
+  
+  .user-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  margin-right: 10px;
+  }
+  
+  .dropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background-color: #292929;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  width: 150px;
+  z-index: 1000;
+  font-family: 'Lato', sans-serif;
+  }
+  
+  .dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+  
+  .dropdown ul li {
+  border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .dropdown ul li a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  }
+  
+  .dropdown ul li a:hover {
+  background-color: #000;
+  }
+  
+  .dropdown ul li:last-child {
+  border-bottom: none;
+  }
+  
+  .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+    }
+  
+  
+    .back-title {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .back-button {
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
+  
+  .tracking-container {
+      width: 800px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 40px 0;
+  }
+  
+  .back-button {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+  }
+  
+  .product-header {
+      display: flex;
+      align-items: center;
+      background-color: black;
+      padding: 15px;
+      border-radius: 8px;
+      color: #fff;
+      margin-bottom: 20px;
+  }
+  
+  .product-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      margin-right: 15px;
+  }
+  
+  .product-title {
+      font-size: 16px;
+      font-weight: bold;
+  }
+  
+  .timeline {
+      padding-left: 20px;
+      position: relative;
+      
+  }
+  
+  .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+  }
+  
+  .timeline-time {
+      font-size: 12px;
+      color: #666;
+      width: 100px;
+      text-align: right;
+      margin-right: 20px;
+  }
+  
+  .timeline-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #333;
+      border-radius: 50%;
+      position: relative;
+      margin-left: 15px;
+      left: 5px; /* Center dot on line */
+  }
+  
+  .timeline-dot:first-of-type {
+      margin-top: 0;
+  }
+  
+  .timeline-line {
+      width: 2px;
+      background-color: #333;
+      position: relative;
+      margin-right: 10px;
+      height: 50px; /* Default height */
+  }
+  .timeline-content {
+      background-color: #f9f9f9;
+      padding: 10px;
+      flex: 1;
+      font-size: 14px;
+      color: #333;
+  }
+  
+  footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #292929;
+    color: #fff;
+    border-top: 1px solid #ddd;
+  }
+  
+  .footer p {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  
+  .footer-info p {
+    margin: 5px 0;
+  }
