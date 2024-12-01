@@ -4,6 +4,7 @@ import Dropdown from "../../components/Dropdown";
 import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import "../../style/HomeLogged.css";
+import HeroSection from "./HeroSection";
 
 const HomeLogged = () => {
   return (
@@ -21,39 +22,7 @@ const HomeLogged = () => {
         <Dropdown />
       </header>
 
-      <main>
-        <section className="hero">
-          <img src="/images/img/Introduction.png" alt="Introduction" />
-          <div className="center">
-            <h1>What is YGentertainment.id?</h1>
-            <p>
-              Official platform providing original YG Entertainment merchandise
-              from Korea for fans in Indonesia. Find exclusive products and the
-              latest concert schedules for YG artists here!
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <main>
-        <section className="upcoming-news">
-          <h2 style={{ paddingLeft: "2%" }}>Upcoming News</h2>
-          <Link to="#" className="more-link">
-            More
-          </Link>
-          <div className="news-grid">
-            <div className="news-item">
-              <img src="/images/img/bp.png" alt="Blackpink Comeback" />
-            </div>
-            <div className="news-item">
-              <img
-                src="/images/img/Upcoming.Babymonster.png"
-                alt="BabyMonster"
-              />
-            </div>
-          </div>
-        </section>
-      </main>
+      <HeroSection />
 
       <main>
         <section className="upcoming-concerts">

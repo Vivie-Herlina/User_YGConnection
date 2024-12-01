@@ -6,7 +6,11 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="logo-container">
-        <img src="../images/logo_YG.png" alt="YG Entertainment Logo" className="logo" />
+        <img
+          src="/images/img/logo_YG.png"
+          alt="YG Entertainment Logo"
+          className="logo"
+        />
       </div>
       <nav>
         <Link to="/">Home</Link>

@@ -2,13 +2,13 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import "../../style/Home.css";
+import { Link } from "react-router-dom";
+import NavbarWithAuth from "../../components/NavbarWithAuth/NavbarWithAuth";
 
 const Home = () => {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
+      <NavbarWithAuth />
 
       <main>
         <section className="hero">
@@ -37,7 +37,10 @@ const Home = () => {
               />
             </div>
             <div className="news-item">
-              <img src="/images/img/Upcoming.Babymonster.png" alt="BabyMonster" />
+              <img
+                src="/images/img/Upcoming.Babymonster.png"
+                alt="BabyMonster"
+              />
             </div>
           </div>
         </section>

@@ -1,0 +1,125 @@
+/* General Navbar Styles */
+.navbar,
+.navbar-logged {
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 50px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #323232;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+.login-button {
+  background-color: #323232;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for Logged-in Navbar */
+.navbar-logged .user-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-logged .user-button .icon-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.hamburger-menu div {
+  height: 4px;
+  width: 100%;
+  background-color: #323232;
+  border-radius: 2px;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+  .navbar,
+  .navbar-logged {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  nav {
+    display: none; /* Initially hide nav links */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  .navbar.open nav {
+    display: flex;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+}
+
+/* Navbar Open State for Mobile */
+.navbar.open .hamburger-menu div:nth-child(1) {
+  transform: rotate(45deg);
+  position: relative;
+  top: 7px;
+}
+
+.navbar.open .hamburger-menu div:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar.open .hamburger-menu div:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -7px;
+}
