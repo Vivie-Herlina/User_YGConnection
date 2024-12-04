@@ -1,0 +1,48 @@
+.navbarlogged {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbarlogged nav {
+  display: flex;
+  gap: 15px;
+}
+
+.navbarlogged nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbarlogged nav a:hover {
+  color: #FFD700;
+}
+
+.logo {
+  height: 50px;
+}
+
+.user-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.user-button .icon-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.user-button:hover {
+  color: #FFD700;
+}

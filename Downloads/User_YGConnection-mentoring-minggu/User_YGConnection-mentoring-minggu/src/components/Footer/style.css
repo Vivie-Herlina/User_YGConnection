@@ -1,0 +1,22 @@
+footer {
+    background-color: #292929; /* Background footer hitam */
+    color: #fff; /* Warna teks putih */
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .footer-links {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  
+  .footer-info p {
+    margin: 5px 0;
+  }
+  

@@ -1,0 +1,230 @@
+/* Global Box Sizing and Overflow */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+.hero {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Center Text */
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    max-width: 500px;
+}
+
+.center h1 {
+    color: white;
+}
+
+.hero h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 16px;
+}
+
+/* Section Styles */
+section {
+    margin-top: 30px;
+    padding: 0 2%;
+    text-align: left;
+    overflow: hidden;
+}
+
+h3 {
+    text-align: center;
+}
+
+/* Hover Animation Effect on Images */
+.news-item img, 
+.concert-item img,
+.artist-card img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.news-item img:hover, 
+.concert-item img:hover,
+.artist-card img:hover {
+    transform: scale(1.05);
+}
+
+/* Upcoming News/Concerts Styles */
+.news-grid,
+.concert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.news-item img, .concert-item img {
+    width: 430px;
+    height: 247px;
+    margin: auto;
+    display: block;
+}
+
+/* New Merch Styles */
+.new-merch {
+    margin-top: 30px;
+}
+
+.new-merch h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.merch-item {
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+}
+
+.merch-item:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: transform 0.5s ease;
+}
+
+.merch-item img {
+    width: 430px;
+    height: 247px;
+    margin: auto;
+    display: block;
+}
+
+.merch-item h3 {
+    font-size: 16px;
+}
+
+/* Looking for Artists Styles */
+.artist-section {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 kolom untuk layar besar */
+    grid-gap: 20px;
+}
+
+.artist-card {
+    text-align: center;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artist-card img {
+    width: 160px;
+    height: 202px;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.artist-card img:hover {
+    transform: scale(1.05);
+}
+
+/* Rectangle overlay for text */
+.artist-card h3 {
+    width: 160px;
+    height: 30px;
+    margin: 0;
+    padding: 8px 0;
+    background-color: #1f1e1e;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    bottom: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px -1px 5px rgba(116, 115, 115, 0.2);
+}
+
+/* More Button Styles */
+.more-link {
+    text-align: center;
+    margin: 30px;
+}
+
+.more-link a {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.more-link a:hover {
+    background-color: #333;
+}
+
+/* Responsive Layouts */
+@media (max-width: 768px) {
+    .artist-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar sedang */
+    }
+}
+
+@media (max-width: 480px) {
+    .artist-grid {
+        grid-template-columns: 1fr; /* 1 kolom pada layar kecil */
+    }
+}
+
+h2, .more-link {
+    display: inline-block;
+    margin: 0;
+}
+
+.more-link {
+    float: right;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+}

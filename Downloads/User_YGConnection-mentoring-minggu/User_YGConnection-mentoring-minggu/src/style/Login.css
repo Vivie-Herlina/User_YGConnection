@@ -1,0 +1,211 @@
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Memberikan jarak antara konten dan footer */
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px; /* Memberikan jarak antara login-container dan footer */
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.icon-button {
+    width: 34px;
+    height: 34px;
+    background-color: #323232; /* Warna background untuk kotak icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.icon-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input[type="name"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center; /* Vertikal tengah */
+    justify-content: center; /* Horizontal tengah */
+}
+
+.login-button:hover {
+    background-color: #555;
+}
+
+.links {
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.links a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.social-button img {
+    width: 20px;
+    height: 20px;
+}
+
+
+.verification-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 320px;
+    position: relative;
+  }
+
+  .code-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .code-inputs input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .change-email-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  .change-email-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .change-email-text a:hover {
+    text-decoration: underline;
+  }
+  
+  .verify-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .verify-button:hover {
+    background-color: #555;
+  }
+  
+  .resend-code {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #333;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .resend-code:hover {
+    color: #555;
+  }

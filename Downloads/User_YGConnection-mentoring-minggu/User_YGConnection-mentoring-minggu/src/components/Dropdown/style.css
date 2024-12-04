@@ -1,0 +1,35 @@
+.dropdown {
+  position: absolute;
+  top: 60px; /* Sesuaikan dengan posisi */
+  right: 10px; /* Sesuaikan */
+  background-color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000; /* Pastikan dropdown berada di atas */
+  display: block;
+  pointer-events: auto; /* Aktifkan klik */
+}
+
+  .dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dropdown ul li {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .dropdown ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .dropdown ul li a:hover {
+    background-color: #000;
+  }
+  

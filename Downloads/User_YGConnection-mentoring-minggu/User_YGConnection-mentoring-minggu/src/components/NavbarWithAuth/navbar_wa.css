@@ -1,0 +1,140 @@
+/* General Navbar Styles */
+.navbar-with,
+.navbar-logged-with {
+  background-color: #f2f2f2;
+  padding: 10px 20px; /* Kurangi padding agar elemen lebih terpusat */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Pastikan elemen navbar sejajar vertikal */
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  height: 50px;
+}
+
+nav {
+  display: flex;
+  gap: 20px; /* Atur jarak antar item */
+  align-items: center; /* Sejajarkan teks menu navbar */
+  margin: 0; /* Hapus margin bawaan */
+  padding: 0;
+}
+
+nav a {
+  color: #323232;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  white-space: nowrap; /* Hindari teks masuk ke baris berikutnya */
+  line-height: 1; /* Pastikan tinggi teks tetap */
+  padding: 0; /* Hapus padding tambahan */
+  display: flex; /* Sejajarkan teks secara fleksibel */
+  align-items: center; /* Sejajarkan teks vertikal */
+}
+
+nav a:hover {
+  color: #000;
+}
+
+/* Button Styles */
+.login-button {
+  background-color: #323232;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  white-space: nowrap; /* Hindari teks di dalam tombol masuk ke baris baru */
+  line-height: 1; /* Pastikan tinggi teks tetap */
+  display: flex; /* Untuk memastikan elemen di dalamnya fleksibel */
+  align-items: center; /* Sejajarkan teks dalam tombol */
+  margin: 0; /* Hilangkan margin tambahan */
+  height: 40px; /* Pastikan tinggi tombol seragam dengan menu lainnya */
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Navbar Styles for Logged-in User */
+.navbar-logged-with .user-button {
+  display: flex;
+  align-items: center; /* Sejajarkan vertikal */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-logged-with .user-button .icon-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Mobile Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.hamburger-menu div {
+  height: 4px;
+  width: 100%;
+  background-color: #323232;
+  border-radius: 2px;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+  .navbar-with,
+  .navbar-logged-with {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  nav {
+    display: none; /* Hide nav links by default */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  .navbar.open nav {
+    display: flex;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+}
+
+/* Navbar Open State for Mobile */
+.navbar.open .hamburger-menu div:nth-child(1) {
+  transform: rotate(45deg);
+  position: relative;
+  top: 7px;
+}
+
+.navbar.open .hamburger-menu div:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar.open .hamburger-menu div:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -7px;
+}
