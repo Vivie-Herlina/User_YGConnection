@@ -3,11 +3,15 @@ import NavbarWithAuth from "../../components/NavbarWithAuth/NavbarWithAuth";
 import Dropdown from "../../components/Dropdown";
 import Footer from "../../components/Footer";
 import "../../style/Point.css";
+import axiosInstance from "../../../axiosInstance";
 
 const Point = () => {
-  // Fungsi untuk menyalin teks ke clipboard
+  const [point, setPoint] = React.useState({ points: [], totalPoint: 0 });
+  const userId = Number(localStorage.getItem("userId")) || 0;
+
   const copied = (text) => {
-    navigator.clipboard.writeText(text)
+    navigator.clipboard
+      .writeText(text)
       .then(() => {
         alert("Coupon code copied to clipboard!");
       })
@@ -16,36 +20,51 @@ const Point = () => {
       });
   };
 
+  const fetchPoint = async () => {
+    try {
+      const response = await axiosInstance.get(`/point/${userId}`);
+      setPoint(response.data.data || { points: [], totalPoint: 0 });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchPoint();
+  }, []);
+
   return (
     <>
-      <NavbarWithAuth /> {/* Import Navbar Component */}
-
-     
-      <Dropdown /> {/* Import Dropdown Component */}
-
-      <main>
+      <NavbarWithAuth />
+      <Dropdown />
+      <main className="max-w-4xl mx-auto p-6 space-y-8 space-x-8">
         <div className="main">
           <section className="tier-status">
-            <div className="status">
-              <p>Tier Status</p>
-              <h2>Bronze</h2>
+            <div className="space-y-5">
+              <h1 className="text-2xl font-bold text-white">Tier Status</h1>
+              <div className="flex justify-center items-center">
+                <h2 className="text-2xl font-bold text-white">Bronze</h2>
+              </div>
             </div>
-            <div className="poin">
-              <p className="point-balance">Point Balance</p>
-              <h3>63</h3>
+            <div className="space-y-5">
+              <h1 className="text-2xl font-bold text-yellow-400">
+                Point Balance
+              </h1>
+              <div className="flex justify-center items-center">
+                <h2 className="text-2xl font-bold text-yellow-400">
+                  {point?.totalPoint || 0}
+                </h2>
+              </div>
             </div>
           </section>
         </div>
 
-        <section className="available-coupons">
-          <h4>Available Coupons</h4>
+        <div className="available-coupons">
+          <h1 className="text-2xl">Available Coupons</h1>
           <div className="coupon">
             <span>Rp50.000</span>
             <input type="text" value="rwrd456" readOnly />
-            <button 
-              className="myButton" 
-              onClick={() => copied("rwrd456")}
-            >
+            <button className="myButton" onClick={() => copied("rwrd456")}>
               Copy
             </button>
           </div>
@@ -53,17 +72,13 @@ const Point = () => {
           <div className="coupon">
             <span>Rp50.000</span>
             <input type="text" value="rwrd456" readOnly />
-            <button 
-              className="myButton" 
-              onClick={() => copied("rwrd456")}
-            >
+            <button className="myButton" onClick={() => copied("rwrd456")}>
               Copy
             </button>
           </div>
-        </section>
+        </div>
       </main>
-
-      <main>
+      <main className="max-w-4xl mx-auto">
         <section className="redeem-rewards">
           <h4>Redeem Points For Rewards</h4>
           <div className="reward-images">
@@ -73,35 +88,37 @@ const Point = () => {
           </div>
         </section>
       </main>
+      <main className="max-w-4xl mx-auto">
+        <h1 className="hidden">Points Activity</h1>
 
-      <main>
-        <section className="points-activity">
-          <h4>Points Activity</h4>
-          <table>
-            <thead>
+        <table className="w-full">
+          <thead>
+            <tr>
+              <th className="text-start">Date</th>
+              <th className="text-start">Activity</th>
+              <th className="text-end">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.isArray(point.points) && point.points.length > 0 ? (
+              point.points.map((point, index) => (
+                <tr key={index}>
+                  <td>
+                    {new Date(point.createAt).toLocaleDateString("id-ID")}
+                  </td>
+                  <td>Purchase</td>
+                  <td className="text-end">+{point.value}</td>
+                </tr>
+              ))
+            ) : (
               <tr>
-                <th>Date</th>
-                <th>Activity</th>
-                <th>Points</th>
+                <td colSpan="3">No points activity available</td>
               </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>10/15/2024</td>
-                <td>Purchase</td>
-                <td>+30</td>
-              </tr>
-              <tr>
-                <td>10/15/2024</td>
-                <td>Purchase</td>
-                <td>+33</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+            )}
+          </tbody>
+        </table>
       </main>
-
-      <Footer /> {/* Import Footer Component */}
+      <Footer />
     </>
   );
 };

@@ -43,13 +43,12 @@ const Payment = () => {
   const virtualAccount = generateRandomAccount();
 
   const handleCopy = async () => {
-    // Copy Virtual Account to clipboard
     navigator.clipboard.writeText(virtualAccount);
     alert("Virtual Account copied to clipboard!");
 
-    // Send request to update Transaction and Order status and create Payment entry
     try {
-      const response = await axiosInstance.post("/payment", {
+      await axiosInstance.post("/payment", {
+        userId: Number(localStorage.getItem("userId")),
         transactionId: transactionData.id,
         orderId: transactionData.orderId,
         provider: "Virtual Account",

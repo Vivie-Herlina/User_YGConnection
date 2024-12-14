@@ -3,8 +3,37 @@ import Footer from "../../components/Footer";
 import "../../style/HomeLogged.css";
 import { Link } from "react-router-dom";
 import NavbarWithAuth from "../../components/NavbarWithAuth/NavbarWithAuth";
+import axiosInstance from "../../../axiosInstance";
 
 const Home = () => {
+  const [events, setEvents] = React.useState([]);
+  const [artists, setArtists] = React.useState([]);
+
+  const url = import.meta.env.VITE_API_URL.replace("/api", "");
+
+  const fetchArtists = async () => {
+    try {
+      const artists = await axiosInstance.get("/artist");
+      setArtists(artists.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchEvents = async () => {
+    try {
+      const events = await axiosInstance.get("/event");
+      setEvents(events.data.slice(0, 2));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchEvents();
+    fetchArtists();
+  }, []);
+
   return (
     <>
       <NavbarWithAuth />
@@ -21,12 +50,12 @@ const Home = () => {
             </p>
           </div>
         </section>
-        </main>
-      
-        <main>
+      </main>
+
+      <main>
         <section className="upcoming-news">
-          <h2 style={{ paddingLeft: "2%" }}>Upcoming News</h2>
-          <a href="#" className="more-link">
+          <h2 className="text-2xl font-bold mb-4">Upcoming News</h2>
+          <a href="#" className="more-link text-xl float-end">
             More
           </a>
           <div className="news-grid">
@@ -45,51 +74,46 @@ const Home = () => {
             </div>
           </div>
         </section>
-        </main>
+      </main>
 
-        <main>
+      <main>
         <section className="upcoming-concerts">
-          <h2 style={{ paddingLeft: "2%" }}>Upcoming Concerts</h2>
-          <Link to="/Concert" className="more-link">
+          <h2 className="text-2xl font-bold mb-4">Upcoming Concerts</h2>
+          <Link to="/Concert" className="text-xl float-end">
             More
           </Link>
           <div className="concert-grid">
-            <div className="concert-item">
-              <img
-                src="/images/img/Poster Konser Treasure.png"
-                alt="TREASURE World Tour Poster"
-              />
-            </div>
-            <div className="concert-item">
-              <img
-                src="/images/img/Poster Konser BabyMonster.png"
-                alt="SE U MARCH Poster"
-              />
-            </div>
+            {events.map((concert, index) => (
+              <div className="concert-item" key={index} title={concert.title}>
+                <img
+                  className="rounded-3xl"
+                  src={`${url}/${concert.image}`}
+                  alt={concert.title}
+                />
+              </div>
+            ))}
           </div>
         </section>
-        </main>
+      </main>
 
-        <main>
+      <main>
         <section className="artist-section">
-          <h2 style={{ paddingLeft: "2%" }}>Looking for artists?</h2>
+          <h1 className="text-2xl font-bold mb-4">Looking for Artists?</h1>
           <div className="artist-grid">
-            {[
-              { img: "blackpink.jpg", name: "BLACKPINK" },
-              { img: "treasuree.jpeg", name: "TREASURE" },
-              { img: "baby.png", name: "BABYMONSTER" },
-              { img: "win.jpg", name: "WINNER" },
-              { img: "akmu.jpeg", name: "AKMU" },
-              { img: "EUN JIWON.png", name: "Eun Ji-won" },
-              { img: "lisa.png", name: "Lalisa Manoban" },
-              { img: "jenni.png", name: "Jennie Kim" },
-              { img: "jisoo.png", name: "Kim Ji-soo" },
-              { img: "rose.png", name: "Roseanne Park" },
-            ].map((artist, index) => (
-              <div className="artist-card" key={index}>
-                <img src={`/images/img/${artist.img}`} alt={artist.name} />
+            {artists.map((artist, index) => (
+              <Link
+                to={`/artist/${artist.name}`}
+                key={index}
+                className="artist-card"
+              >
+                <img
+                  src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/${
+                    artist.image
+                  }`}
+                  alt={artist.name}
+                />
                 <h3>{artist.name}</h3>
-              </div>
+              </Link>
             ))}
           </div>
         </section>

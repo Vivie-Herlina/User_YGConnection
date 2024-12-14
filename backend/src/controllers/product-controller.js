@@ -5,7 +5,9 @@ const prisma = new PrismaClient();
 const Product = {
   index: async (req, res) => {
     try {
-      const product = await prisma.product.findMany();
+      const product = await prisma.product.findMany({
+        include: { sales: true },
+      });
       return res.json(product);
     } catch (error) {
       console.log(error);

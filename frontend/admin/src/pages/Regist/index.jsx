@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import NavbarLogin from "../../components/NavbarLogin";
-import Footer from "../../components/Footer";
+import axiosInstance from "../../axiosInstance";
 // import "../../style/Regis.css";
-
-import axiosInstance from "../../../axiosInstance";
 
 function Regis() {
   const [values, setValues] = useState({
     name: "",
     email: "",
     phone: "",
+    role: "admin",
     password: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
@@ -38,11 +36,11 @@ function Regis() {
   };
   return (
     <>
-      <NavbarLogin />
-
-      <main>
-        <div className="shadow-lg p-10 rounded-lg">
-          <h1 className="text-2xl font-bold">YGEntertainment Account</h1>
+      <main className="flex justify-center py-5">
+        <div className="shadow-lg p-10 rounded-lg max-w-lg">
+          <h1 className="text-2xl font-bold text-center">
+            YGEntertainment Account
+          </h1>
           <p className="text-sm mb-5 text-center">
             Sign Up YGEntertainment Account
           </p>
@@ -125,8 +123,6 @@ function Regis() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </>
   );
 }

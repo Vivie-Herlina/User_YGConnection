@@ -2,14 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NavbarLogin from "../../components/NavbarLogin";
 import Footer from "../../components/Footer";
-import "../../style/Login.css"; // Assuming you have a CSS file for styling
+import "../../style/Login.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axiosInstance from "../../../axiosInstance";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../services/authSlice";
-
-const apiUrl = import.meta.env.VITE_API_URL;
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -31,8 +29,6 @@ const Login = () => {
       dispatch(login({ user: response.data.user, token: response.data.token }));
       navigate("/HomeLogged");
     } catch (error) {
-      console.log("Error Login", error);
-
       setErrorMessage("Login failed. Please check your credentials.");
     }
   };
@@ -53,10 +49,12 @@ const Login = () => {
 
       <main>
         <div className="login-container">
-          <h1>YGEntertainment Account</h1>
+          <h1 className="text-2xl font-bold text-center">
+            YGEntertainment Account
+          </h1>
           <p>Log in YGEntertainment Account</p>
 
-          {errorMessage && <p className="error">{errorMessage}</p>}
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>}
 
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
@@ -92,7 +90,7 @@ const Login = () => {
               </Link>
             </p>
             <p>
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link to="/Regis" className="regis">
                 Sign up
               </Link>

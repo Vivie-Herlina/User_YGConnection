@@ -1,57 +1,89 @@
 import React from "react";
 import NavbarWithAuth from "../../components/NavbarWithAuth/NavbarWithAuth";
 import Footer from "../../components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../../style/DetailConcert.css";
+import axiosInstance from "../../../axiosInstance";
 
 const DetailConcert = () => {
+  const { id } = useParams();
+  const [event, setEvent] = React.useState({});
+
+  const url = import.meta.env.VITE_API_URL.replace("/api", "");
+
+  const fetchEvent = async () => {
+    try {
+      const event = await axiosInstance.get(`/event/${id}`);
+      setEvent(event.data);
+      console.log(event.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchEvent();
+  }, []);
+
   return (
     <>
       <NavbarWithAuth />
 
-      <main>
-        <div className="banner-image">
-          <img src="/images/img/konser_seventeen.png" alt="Konser Seventeen" />
-        </div>
-      </main>
-
-      <main>
-        <div className="content">
-          <h3>SEVENTEEN</h3>
-        </div>
-      </main>
-
-      <main>
+      {event ? (
         <div>
-          <p><strong>SEVENTEEN - &apos;RIGHT HERE&apos; Tour</strong><br /></p>
-        </div>
-      </main>
+          <main>
+            <div className="banner-image">
+              <img src={`${url}/${event.image}`} alt="Konser Seventeen" />
+            </div>
+          </main>
 
-      <main>
-        <div>
-          <strong>JIS, Jakarta, Indonesia</strong><br />
-        </div>
-      </main>
+          <main>
+            <div className="flex justify-center items-center">
+              <h1 className="text-2xl font-bold">{event.artist?.name}</h1>
+            </div>
+          </main>
 
-      <main>
-        <div>
-          February 8, 2025
-        </div>
-      </main>
+          <main>
+            <div>
+              <p>
+                <strong>
+                  {event.artist?.name} - {event.name}
+                </strong>
+                <br />
+              </p>
+            </div>
+          </main>
 
-      <main>
-        <div>
-          <p>SEVENTEEN &apos;Right Here&apos; Tour is highly anticipated, showcasing their powerful performances and recent<br />
-            hits. Known for their synchronized choreography and engaging stage presence, this tour promises an<br />
-            unforgettable experience for fans worldwide</p>
-        </div>
-      </main>
+          <main>
+            <div>
+              <strong>{event.location}</strong>
+              <br />
+            </div>
+          </main>
 
-      <main>
-        <div>
-          <Link to="" className="beli">Buy Ticket</Link>
+          <main>
+            <div>{new Date(event.date).toDateString("en-US")}</div>
+          </main>
+
+          <main>
+            <div>
+              <p>{event.description}</p>
+            </div>
+          </main>
+
+          <main>
+            <div>
+              <Link to="" className="beli">
+                Buy Ticket
+              </Link>
+            </div>
+          </main>
         </div>
-      </main>
+      ) : (
+        <div>
+          <h1 className="text-2xl font-bold">No concert found</h1>
+        </div>
+      )}
 
       <Footer />
     </>

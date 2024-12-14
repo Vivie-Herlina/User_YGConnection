@@ -5,6 +5,14 @@ import Footer from "../../components/Footer";
 import "../../style/Contact.css";
 
 const Contact = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const firstName = event.target[0].value;
+    const lastName = event.target[1].value;
+    alert(`Thank ${firstName} ${lastName || null} for contacting us!`);
+    event.target.reset();
+  };
+
   return (
     <div>
       <NavbarWithAuth />
@@ -43,14 +51,33 @@ const Contact = () => {
             <h2>Get in Touch</h2>
             <p>You can reach us anytime</p>
           </div>
-          <form>
-            <div className="form-row">
-              <input type="text" placeholder="First Name" />
-              <input type="text" placeholder="Last Name" />
+          <form onSubmit={handleSubmit}>
+            <div className="form-row mb-5">
+              <input
+                className="p-2"
+                type="text"
+                placeholder="First Name"
+                required
+              />
+              <input
+                className="p-2 float-end"
+                type="text"
+                placeholder="Last Name"
+                required
+              />
             </div>
-            <input type="email" placeholder="Your Email" />
-            <input type="tel" placeholder="Phone Number" />
-            <textarea placeholder="How can we help"></textarea>
+            <input type="email" placeholder="Your Email" required />
+            <input
+              className="p-2 mb-5"
+              type="tel"
+              placeholder="Phone Number"
+              required
+            />
+            <textarea
+              className="p-2"
+              placeholder="How can we help"
+              required
+            ></textarea>
             <button type="submit" className="submit-btn">
               Submit
             </button>

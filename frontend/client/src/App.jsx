@@ -1,7 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom"; // Hapus Router di sini
 import Home from "./pages/Home";
 import AboutUs from "./pages/AboutUs";
-import AboutusLogged from "./pages/AboutusLogged";
+import AboutusLogged from "./pages/AboutUsLogged";
 import Login from "./pages/Login";
 import Reset from "./pages/Reset";
 import ResetNext from "./pages/ResetNext";
@@ -37,7 +37,7 @@ import { Provider } from "react-redux";
 import Contact from "./pages/Contact";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-import "./app.css";
+import "./App.css";
 
 function App() {
   const location = useLocation();
@@ -87,9 +87,9 @@ function App() {
           <Route path="/DetailsItem" element={<DetailsItem />} />
           <Route path="/Concert" element={<Concert />} />
           <Route path="/ConcertLogged" element={<ConcertLogged />} />
-          <Route path="/ArtistDetail" element={<ArtistDetail />} />
+          <Route path="/artist/:name" element={<ArtistDetail />} />
           <Route path="/ArtistDetailLogged" element={<ArtistDetailLogged />} />
-          <Route path="/DetailConcert" element={<DetailConcert />} />
+          <Route path="/DetailConcert/:id" element={<DetailConcert />} />
           <Route
             path="/DetailConcertLogged"
             element={<DetailConcertLogged />}

@@ -17,6 +17,7 @@ const LoginForm = () => {
         password,
       });
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("role", response.data.user.role);
       navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
@@ -38,7 +39,7 @@ const LoginForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="flex px-4 py-2 rounded-lg bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex w-96 px-4 py-2 rounded-lg bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
@@ -52,7 +53,7 @@ const LoginForm = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              className="px-4 py-2 rounded-lg bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-4 w-96 py-2 rounded-lg bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>

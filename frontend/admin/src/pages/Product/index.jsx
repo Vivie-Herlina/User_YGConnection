@@ -193,8 +193,12 @@ function Productpage() {
                       <span>{product.name}</span>
                     </div>
                   </td>
-                  <td className="py-2 px-4 border-b">{product.price}</td>
-                  {/* <td className="py-2 px-4 border-b">{product.sales}</td> */}
+                  <td className="py-2 px-4 border-b align-middle">
+                    {product.price}
+                  </td>
+                  <td className="py-2 px-4 border-b align-middle">
+                    {product.sales[0]?.soldOut}
+                  </td>
                 </tr>
               ))}
             </tbody>

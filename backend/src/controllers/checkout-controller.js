@@ -28,22 +28,52 @@ const Checkout = {
         return res.status(400).json({ message: "User does not exist" });
       }
 
-      await prisma.cart.create({
-        data: {
-          userId,
-          productId,
-          quantity,
+      // Check if the cart item already exists
+      const existingCartItem = await prisma.cart.findUnique({
+        where: {
+          userId_productId: {
+            userId,
+            productId,
+          },
         },
       });
 
+      let cartItem;
+
+      if (existingCartItem) {
+        // If the cart item exists, increment the quantity
+        cartItem = await prisma.cart.update({
+          where: {
+            userId_productId: {
+              userId,
+              productId,
+            },
+          },
+          data: {
+            quantity: existingCartItem.quantity + quantity,
+          },
+        });
+      } else {
+        // If the cart item does not exist, create a new one
+        cartItem = await prisma.cart.create({
+          data: {
+            userId,
+            productId,
+            quantity,
+          },
+        });
+      }
+
       return res.json({
-        message: `${quantity >= 1 ? "products" : "product"} added to checkout`,
+        message: `${quantity >= 1 ? "Products" : "Product"} added to checkout`,
+        cartItem,
       });
     } catch (error) {
-      console.log(error);
-      return res.status(500).json(error);
+      console.error("Error updating cart:", error);
+      return res.status(500).json({ error: "Internal server error" });
     }
   },
+
   show: async (req, res) => {
     const id = parseInt(req.params.id);
 

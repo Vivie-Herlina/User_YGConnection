@@ -12,38 +12,9 @@ import { MdPayment, MdOutlineLogout } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { logout } from "../../services/authSlice";
 import logo from "/images/img/logo_YG.png";
-import Modal from "../Modal";
-import axiosInstance from "../../../axiosInstance.js";
 
 const NavbarLogged = () => {
-  const [showModal, setShowModal] = React.useState(false);
-  const [point, setPoint] = React.useState(0);
   const dispatch = useDispatch();
-
-  const userId = Number(localStorage.getItem("userId")) || 0;
-
-  const fetchPoint = async () => {
-    try {
-      const point = await axiosInstance.get(`/point/${userId}`);
-      setPoint(point.data);
-    } catch (error) {
-      console.log(error);
-      alert("something when wrong");
-    }
-  };
-
-  React.useEffect(() => {
-    fetchPoint();
-  }, []);
-
-  const openModal = () => {
-    setShowModal(!showModal);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-    setShowAddCategory(false);
-  };
 
   const signout = () => dispatch(logout());
   return (
@@ -55,7 +26,7 @@ const NavbarLogged = () => {
             <div className="relative">
               <FaSearch size={20} />
             </div>
-            <Link to="/HomeLogged" className="hover:text-gray-500">
+            <Link to="/" className="hover:text-gray-500">
               Home
             </Link>
             <Link to="/Product" className="hover:text-gray-500">
@@ -86,7 +57,7 @@ const NavbarLogged = () => {
                 <FaShoppingCart className="me-2" />
                 Cart
               </Dropdown.List>
-              <Dropdown.List onClick={openModal} className="flex items-center">
+              <Dropdown.List to="/point" className="flex items-center">
                 <FaCoins className="me-2" />
                 Poin
               </Dropdown.List>
@@ -94,7 +65,7 @@ const NavbarLogged = () => {
                 <MdPayment className="me-2" />
                 Transaction
               </Dropdown.List>
-              <Dropdown.List to="/account" className="flex items-center">
+              <Dropdown.List to="/accountsetting" className="flex items-center">
                 <FaUser className="me-2" />
                 Profile
               </Dropdown.List>
@@ -109,17 +80,6 @@ const NavbarLogged = () => {
           </div>
         </div>
       </div>
-      <Modal show={showModal} onClose={() => closeModal}>
-        <Modal.Header onClose={closeModal}>Point</Modal.Header>
-        <Modal.Body>
-          <div className="flex justify-center items-center">
-            <h1 className="text-4xl flex justify-center items-center text-yellow-500">
-              <FaCoins className="me-3" />
-              {point}
-            </h1>
-          </div>
-        </Modal.Body>
-      </Modal>
     </header>
   );
 };

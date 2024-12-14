@@ -5,7 +5,8 @@ const prisma = new PrismaClient();
 const Payment = {
   index: async (req, res) => {},
   store: async (req, res) => {
-    const { transactionId, orderId, provider, amount, currency } = req.body;
+    const { userId, transactionId, orderId, provider, amount, currency } =
+      req.body;
 
     try {
       await prisma.order.update({
@@ -28,6 +29,7 @@ const Payment = {
 
       const payment = await prisma.payment.create({
         data: {
+          userId,
           transactionId,
           provider,
           amount,
@@ -53,6 +55,23 @@ const Payment = {
             stock: {
               decrement: item.quantity,
             },
+          },
+        });
+
+        await prisma.sales.upsert({
+          where: { productId: item.productId },
+          update: {
+            soldOut: {
+              increment: item.quantity,
+            },
+            income: {
+              increment: item.quantity * item.product.price,
+            },
+          },
+          create: {
+            productId: item.productId,
+            soldOut: item.quantity,
+            income: item.quantity * item.product.price,
           },
         });
 

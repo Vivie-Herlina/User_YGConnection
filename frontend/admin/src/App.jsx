@@ -13,7 +13,9 @@ import AddProduct from "./pages/AddProduct"; // Import AddProduct
 import Adminsettings from "./pages/adminsettings";
 import DeliveryHistory from "./pages/DeliveryHistory";
 import PrivateRoute from "./components/PrivateRoute";
+import Regis from "./pages/Regist";
 import "./App.css";
+import "./index.css";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
       <Routes>
         {/* Halaman Login Terbuka */}
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<Regis />} />
 
         {/* Semua Halaman Lainnya Dilindungi */}
         <Route

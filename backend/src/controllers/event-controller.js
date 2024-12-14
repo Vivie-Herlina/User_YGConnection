@@ -35,7 +35,12 @@ const Event = {
     const id = parseInt(req.params.id);
 
     try {
-      const event = await prisma.event.findUnique({ where: { id } });
+      const event = await prisma.event.findUnique({
+        where: { id },
+        include: {
+          artist: true,
+        },
+      });
 
       if (!event) {
         return res.status(404).json({ message: "event not found" });

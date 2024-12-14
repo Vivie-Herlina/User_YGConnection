@@ -129,52 +129,74 @@ const Checkout = () => {
           </div>
 
           <div className="payment-method">
-            <h2>Payment Method</h2>
-            <label>
-              <input
-                type="radio"
-                name="payment"
-                value="Bank (Virtual Account)"
-                onChange={(e) => setPaymentMethod(e.target.value)}
-              />
-              Bank (Virtual Account)
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="payment"
-                value="ShopeePay"
-                onChange={(e) => setPaymentMethod(e.target.value)}
-              />
-              ShopeePay
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="payment"
-                value="GoPay"
-                onChange={(e) => setPaymentMethod(e.target.value)}
-              />
-              GoPay
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="payment"
-                value="Dana"
-                onChange={(e) => setPaymentMethod(e.target.value)}
-              />
-              Dana
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="payment"
-                value="LinkAja"
-                onChange={(e) => setPaymentMethod(e.target.value)}
-              />
-              LinkAja
-            </label>
+            <h2 className="text-lg font-semibold mb-4">Payment Method</h2>
+            <div className="flex flex-col gap-4">
+              <label className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="Bank (Virtual Account)"
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                    className="form-radio text-blue-600 focus:ring-blue-500"
+                  />
+                  <span className="text-gray-700">Bank</span>
+                </div>
+              </label>
+              <hr className="border-gray-300" />
+              <label className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="ShopeePay"
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                    className="form-radio text-blue-600 focus:ring-blue-500"
+                  />
+                  <span className="text-gray-700">ShopeePay</span>
+                </div>
+              </label>
+              <hr className="border-gray-300" />
+              <label className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="GoPay"
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                    className="form-radio text-blue-600 focus:ring-blue-500"
+                  />
+                  <span className="text-gray-700">GoPay</span>
+                </div>
+              </label>
+              <hr className="border-gray-300" />
+              <label className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="Dana"
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                    className="form-radio text-blue-600 focus:ring-blue-500"
+                  />
+                  <span className="text-gray-700">Dana</span>
+                </div>
+              </label>
+              <hr className="border-gray-300" />
+              <label className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="LinkAja"
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                    className="form-radio text-blue-600 focus:ring-blue-500"
+                  />
+                  <span className="text-gray-700">LinkAja</span>
+                </div>
+              </label>
+              <hr className="border-gray-300" />
+            </div>
           </div>
 
           <button className="pay-button" onClick={handlePayment}>

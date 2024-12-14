@@ -14,7 +14,6 @@ const Order = {
         },
       });
 
-      // Tambahkan totalAmount untuk setiap item di hasil
       const cartWithTotalAmount = orders.map((item) => ({
         ...item,
         totalAmount: item.product.price * item.quantity,
@@ -27,8 +26,7 @@ const Order = {
     }
   },
   store: async (req, res) => {
-    const orders = req.body; // Expecting an array
-    console.log(req.body);
+    const orders = req.body;
 
     try {
       const createdOrders = [];
@@ -36,7 +34,6 @@ const Order = {
       for (const order of orders) {
         const { userId, productId, quantity, totalAmount } = order;
 
-        // Check if the user exists
         const userExists = await prisma.user.findUnique({
           where: { id: parseInt(userId) },
         });
@@ -47,7 +44,6 @@ const Order = {
             .json({ message: `User with ID ${userId} does not exist` });
         }
 
-        // Fetch the product to validate existence (optional if you're trusting the client)
         const productExists = await prisma.product.findUnique({
           where: { id: productId },
         });
@@ -58,13 +54,12 @@ const Order = {
             .json({ message: `Product with ID ${productId} does not exist` });
         }
 
-        // Create the order
         const newOrder = await prisma.order.create({
           data: {
             userId: parseInt(userId),
             productId,
             quantity,
-            totalAmount, // Already calculated on the client-side
+            totalAmount,
           },
         });
 

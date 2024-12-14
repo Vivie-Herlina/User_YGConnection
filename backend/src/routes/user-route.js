@@ -13,7 +13,7 @@ UserRouter.post("/", User.store);
 UserRouter.get("/:id", User.show);
 
 // update user
-UserRouter.put("/:id", User.update);
+UserRouter.put("/:id/:userId", User.update);
 
 // delete user
 UserRouter.delete("/:id", User.destroy);

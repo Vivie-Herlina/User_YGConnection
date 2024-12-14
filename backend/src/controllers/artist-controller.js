@@ -64,6 +64,7 @@ const Artist = {
         where: { name },
         include: {
           member: true,
+          products: true,
         },
       });
 

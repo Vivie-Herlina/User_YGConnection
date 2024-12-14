@@ -1,273 +1,280 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  } 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  body {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    color: #333;
-    background-color: #fff;
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #333;
+  background-color: #fff;
 }
 
 
 header {
-    background-color: #f2f2f2;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Menempatkan logo di kiri */
-    border-bottom: 2px solid #ccc;
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Menempatkan logo di kiri */
+  border-bottom: 2px solid #ccc;
 }
 
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .logo {
-    height: 50px;
+  height: 50px;
 }
 
 nav {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 nav a {
-    margin-right: 15px;
-    color: #323232;
-    text-decoration: none;
-    font-weight: bold;
+  margin-right: 15px;
+  color: #323232;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .login-button {
-    background-color: #323232;
-    color: #fff;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
+  background-color: #323232;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .user-menu {
-    position: relative;
-  }
+  position: relative;
+}
 
-  .user-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #333;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-  }
+.user-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-  .user-icon {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0) invert(1);
-    margin-right: 10px;
-  }
+.user-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  margin-right: 10px;
+}
 
-  .dropdown {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background-color: #292929;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    width: 150px;
-    z-index: 1000;
-   font-family: 'Lato', sans-serif;
-  }
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background-color: #292929;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  width: 150px;
+  z-index: 1000;
+  font-family: 'Lato', sans-serif;
+}
 
-  .dropdown ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+.dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  .dropdown ul li {
-    border-bottom: 1px solid #f0f0f0;
-  }
+.dropdown ul li {
+  border-bottom: 1px solid #f0f0f0;
+}
 
-  .dropdown ul li a {
-    display: block;
-    padding: 10px;
-    color: #fff;
-    text-decoration: none;
-  }
+.dropdown ul li a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+}
 
-  .dropdown ul li a:hover {
-    background-color: #000;
-  }
+.dropdown ul li a:hover {
+  background-color: #000;
+}
 
-  .dropdown ul li:last-child {
-    border-bottom: none;
-  }
-  
-    .points-content {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #fff;
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-    
-    /* Tier Status */
-    .main{
-      display: flex;
-      gap: 60px;
-    }
-    .tier-status {
-      /* text-align: center; */
-      background-color: black;
-      display: flex;
-      justify-content: space-around;
-      width: 500px;
-      color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .tier-status p{
-      font-size: 1em;
-    }
+.dropdown ul li:last-child {
+  border-bottom: none;
+}
 
-    .tier-status h2 {
-      font-size: 1.8em;
-    }
-    
-    .tier-status .point-balance {
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #ffcc00;
+.points-content {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 
-    }
+/* Tier Status */
+.main {
+  display: flex;
+  gap: 60px;
+}
 
-    .tier-status h3 {
-      font-size: 2em;
-      color: #ffcc00;
-    }
-    
-    /* Available Coupons */
-    .available-coupons h4 {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-    
-    .coupon {
-      display: flex;
-      align-items: center;
-      /* justify-content: space-evenly; */
-      gap: 60px;
-      margin-bottom: 10px;
-      margin-top: 10px;
-    }
-    
-    .coupon span {
-      margin-right: 10px;
-      font-weight: bold;
-    }
-    
-    .coupon input {
-      border: 1px solid #ddd;
-      padding: 5px;
-      width: 100px;
-      border: none;
-      text-align: center;
-      margin-right: 10px;
-    }
-    
-    .myButton {
-      background-color: #4CAF50;
-      transition: background-color 0.3s;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    
-    /* Redeem Rewards */
-    .redeem-rewards h4 {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-    
-    .reward-images {
-      justify-content: center;
-      display: flex;
-      gap: 10px;
-    }
-    
-    .reward-images img {
-      width: 200px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      margin-top: 30px;
-    }
-    
-    /* Points Activity */
-    .points-activity h4 {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-    
-    .points-activity table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    
-    .points-activity th, .points-activity td {
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
-    }
-    
-    .points-activity th {
-      background-color: #f3f3f3;
-      font-weight: bold;
-    }
-  
-    footer {
-        background-color: #292929; /* Background footer hitam */
-        color: #fff; /* Warna teks putih */
-        padding: 20px;
-        text-align: center;
-        font-size: 14px;
-    }
-    
-    .footer-links {
-        margin-bottom: 10px;
-    }
-    
-    .footer-links a {
-        color: #fff;
-        text-decoration: none;
-        margin-right: 15px;
-    }
-    
-    .footer-info p {
-        margin: 5px 0;
-    }
-  
+.tier-status {
+  /* text-align: center; */
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  color: #fff;
+  padding: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.tier-status p {
+  font-size: 1em;
+}
+
+.tier-status h2 {
+  font-size: 1.8em;
+}
+
+.tier-status .point-balance {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #ffcc00;
+
+}
+
+.tier-status h3 {
+  font-size: 2em;
+  color: #ffcc00;
+}
+
+/* Available Coupons */
+.available-coupons h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.coupon {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  gap: 60px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.coupon span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.coupon input {
+  border: 1px solid #ddd;
+  padding: 5px;
+  width: 100px;
+  border: none;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.myButton {
+  background-color: #4CAF50;
+  transition: background-color 0.3s;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Redeem Rewards */
+.redeem-rewards h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.reward-images {
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+}
+
+.reward-images img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+/* Points Activity */
+.points-activity h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.points-activity table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.points-activity th,
+.points-activity td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.points-activity th {
+  background-color: #f3f3f3;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #292929;
+  /* Background footer hitam */
+  color: #fff;
+  /* Warna teks putih */
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
