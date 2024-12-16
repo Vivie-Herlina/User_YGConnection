@@ -10,9 +10,9 @@ const Checkout = () => {
   const userId = parseInt(localStorage.getItem("userId")) || null;
   const [orders, setOrders] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
-  const [shippingFee] = useState(80000); // Biaya pengiriman tetap
-  const [discount] = useState(0); // Diskon tetap, ubah jika ada logika diskon dinamis
-  const [paymentMethod, setPaymentMethod] = useState(""); // Untuk menyimpan metode pembayaran yang dipilih
+  const [shippingFee] = useState(80000);
+  const [discount] = useState(0);
+  const [paymentMethod, setPaymentMethod] = useState("");
   const navigate = useNavigate();
 
   const fetchOrders = async () => {
@@ -20,7 +20,6 @@ const Checkout = () => {
       const response = await axiosInstance(`/order/${userId}`);
       setOrders(response.data);
 
-      // Hitung subtotal
       const total = response.data.reduce((acc, item) => {
         return acc + item.quantity * item.product.price;
       }, 0);
@@ -37,7 +36,6 @@ const Checkout = () => {
 
   const grandTotal = subtotal + shippingFee - discount;
 
-  // Fungsi untuk menangani klik tombol Pay
   const handlePayment = async () => {
     if (!paymentMethod) {
       alert("Please select a payment method!");
@@ -45,10 +43,9 @@ const Checkout = () => {
     }
 
     try {
-      // Mengirim data transaksi ke backend
       const response = await axiosInstance.post("/transaction", {
         userId,
-        orderId: orders[0]?.id, // Asumsikan hanya ada satu order untuk checkout ini
+        orderId: orders[0]?.id,
         amount: grandTotal,
         paymentMethod,
       });

@@ -8,6 +8,8 @@ const upload = UploadMiddlware();
 // get all product
 ProductRouter.get("/", Product.index);
 
+ProductRouter.get("/category/:name", Product.index);
+
 // insert product
 ProductRouter.post("/", upload, Product.store);
 

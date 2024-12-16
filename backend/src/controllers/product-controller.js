@@ -4,10 +4,24 @@ const prisma = new PrismaClient();
 
 const Product = {
   index: async (req, res) => {
+    const { name } = req.params;
     try {
-      const product = await prisma.product.findMany({
-        include: { sales: true },
-      });
+      let product;
+
+      if (name) {
+        product = await prisma.product.findMany({
+          where: { artist: { name } },
+          include: {
+            artist: true,
+            sales: true,
+            category: true,
+          },
+        });
+      } else {
+        product = await prisma.product.findMany({
+          include: { sales: true, category: true },
+        });
+      }
       return res.json(product);
     } catch (error) {
       console.log(error);
@@ -41,15 +55,16 @@ const Product = {
     }
   },
   show: async (req, res) => {
-    const id = parseInt(req.params.id);
+    const { id } = req.params;
 
     if (!id) {
       return res.status(400).json({ message: "product id not found" });
     }
+    console.log("ada");
 
     try {
       const product = await prisma.product.findUnique({
-        where: { id },
+        where: { id: Number(id) },
         include: {
           artist: true,
           category: true,

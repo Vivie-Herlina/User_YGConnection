@@ -104,8 +104,22 @@ function App() {
             }
           />
           <Route path="/NewsDetailLogged" element={<NewsDetailLogged />} />
-          <Route path="/AccountSetting" element={<AccountSetting />} />
-          <Route path="/Point" element={<Point />} />
+          <Route
+            path="/AccountSetting"
+            element={
+              <ProtectedRoute>
+                <AccountSetting />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/Point"
+            element={
+              <ProtectedRoute>
+                <Point />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/Community" element={<Community />} />
         </Routes>

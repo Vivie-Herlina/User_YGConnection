@@ -57,6 +57,7 @@ const AccountSetting = () => {
       setMessage(response.data.message);
       setIsEditing(false);
       fetchUser();
+      localStorage.setItem("name", formData.name);
     } catch (error) {
       console.log(error);
     }
@@ -130,6 +131,7 @@ const AccountSetting = () => {
               name="gender"
               placeholder="Gender"
               value={formData.gender}
+              onChange={handleChange}
               disabled={!isEditing}
             />
           </div>
@@ -140,6 +142,7 @@ const AccountSetting = () => {
               name="country"
               placeholder="Country"
               value={formData.country}
+              onChange={handleChange}
               disabled={!isEditing}
             />
           </div>
@@ -150,6 +153,7 @@ const AccountSetting = () => {
               name="language"
               placeholder="Language"
               value={formData.language}
+              onChange={handleChange}
               disabled={!isEditing}
             />
           </div>
@@ -160,6 +164,7 @@ const AccountSetting = () => {
               name="timeZone"
               placeholder="Time Zone"
               value={formData.timeZone}
+              onChange={handleChange}
               disabled={!isEditing}
             />
           </div>

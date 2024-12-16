@@ -15,6 +15,7 @@ function AddProduct() {
     stocks: "",
     description: "",
     image: null, // Add state for the image
+    point: "", // Add state for points
   });
 
   const fetchArtist = async () => {
@@ -70,7 +71,7 @@ function AddProduct() {
     data.append("price", formData.price);
     data.append("stock", formData.stocks);
     data.append("category", formData.category);
-    data.append("point", formData.point);
+    data.append("point", formData.point); // Include points in the request
     data.append("description", formData.description);
     if (formData.image) {
       data.append("productImage", formData.image); // Append image file
@@ -84,7 +85,6 @@ function AddProduct() {
       });
 
       alert("Success");
-      console.log(result);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -196,7 +196,7 @@ function AddProduct() {
                 placeholder="Category"
                 required
               >
-                <option selected>Select category</option>
+                <option value="">Select category</option>
                 {categories &&
                   categories.map((category, index) => (
                     <option key={index} value={category.id}>
@@ -212,7 +212,7 @@ function AddProduct() {
                 name="point"
                 value={formData.point}
                 onChange={handleChange}
-                placeholder="100"
+                placeholder="Enter points for this product"
               />
             </div>
           </div>

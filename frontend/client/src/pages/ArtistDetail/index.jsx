@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import NavbarWithAuth from "../../components/NavbarWithAuth/NavbarWithAuth";
 import Footer from "../../components/Footer";
 // import "../../style/ArtistDetail.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axiosInstance from "../../../axiosInstance";
 
 const ArtisDetail = () => {
   const { name } = useParams();
   const [artist, setArtist] = React.useState();
+  const [products, setProducts] = React.useState([]);
 
   const url = import.meta.env.VITE_API_URL.replace("/api", "");
+  const userId = localStorage.getItem("userId");
 
   const fetchArtist = async () => {
     try {
@@ -20,8 +22,18 @@ const ArtisDetail = () => {
     }
   };
 
+  const fetchProducts = async () => {
+    try {
+      const products = await axiosInstance.get(`/products/category/${name}`);
+      setProducts(products.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   React.useEffect(() => {
     fetchArtist();
+    fetchProducts();
   }, []);
 
   return (
@@ -44,7 +56,7 @@ const ArtisDetail = () => {
               <h2 className="text-xl font-bold mb-6">Members</h2>
               <div className="member-list grid grid-cols-4 gap-4">
                 {artist.member.map((member, index) => (
-                  <div className="member-item mb-2">
+                  <div key={index} className="member-item mb-2">
                     <img src={`${url}/${member.image}`} alt={member.name} />
                     <p className="member-name">{member.name}</p>
                   </div>
@@ -53,52 +65,29 @@ const ArtisDetail = () => {
             </section>
 
             <section className="merch mb-4">
-              <h2>Merch</h2>
-              <div className="merch-list grid grid-cols-2 gap-4">
-                <div className="item mb-2">
-                  <img src="/images/img/keyring.png" alt="Keyring" />
-                  <p>
-                    Keyring
-                    <br />
-                    <span>100 Points</span>
-                  </p>
-                </div>
-                <div className="item mb-2">
-                  <img
-                    src="/images/img/Signature Ring.png"
-                    alt="Signature Ring"
-                  />
-                  <p>
-                    Signature Ring
-                    <br />
-                    <span>200 Points</span>
-                  </p>
-                </div>
-                <div className="item mb-2">
-                  <img src="/images/img/Brooch.png" alt="Brooch" />
-                  <p>
-                    Brooch
-                    <br />
-                    <span>150 Points</span>
-                  </p>
-                </div>
-                <div className="item mb-2">
-                  <img src="/images/img/necklace.png" alt="Room Slipper" />
-                  <p>
-                    Necklace
-                    <br />
-                    <span>250 Points</span>
-                  </p>
-                </div>
-                <div className="item mb-2">
-                  <img src="/images/img/Ballcap.png" alt="Ballcap" />
-                  <p>
-                    Ballcap
-                    <br />
-                    <span>250 Points</span>
-                  </p>
-                </div>
-              </div>
+              {products && (
+                <>
+                  <div className="merch-list grid grid-cols-2 gap-4">
+                    {products.map((product, index) => (
+                      <Link
+                        to={`/ProductDetail/${product.id}`}
+                        key={index}
+                        className="item mb-2"
+                      >
+                        <img
+                          src={`${url}/${product.image}`}
+                          alt={product.name}
+                        />
+                        <p>
+                          {product.name}
+                          <br />
+                          <span>{product.point} point</span>
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              )}
             </section>
           </>
         ) : (

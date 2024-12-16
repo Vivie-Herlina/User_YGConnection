@@ -11,6 +11,7 @@ import OrderRouter from "./order-route.js";
 import TransactionRouter from "./transaction-route.js";
 import Payment from "../controllers/payment-controller.js";
 import PointRouter from "./point-route.js";
+import VoucherRouter from "./voucher-route.js";
 
 const router = express.Router();
 
@@ -49,5 +50,7 @@ router.use("/api/point", PointRouter);
 
 // users router
 router.use("/api/profile", UserRouter);
+
+router.use("/api/voucher", VoucherRouter);
 
 export default router;

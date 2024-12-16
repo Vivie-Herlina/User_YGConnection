@@ -27,7 +27,7 @@ const Login = () => {
     try {
       const response = await axiosInstance.post("/auth/login", credentials);
       dispatch(login({ user: response.data.user, token: response.data.token }));
-      navigate("/HomeLogged");
+      navigate("/");
     } catch (error) {
       setErrorMessage("Login failed. Please check your credentials.");
     }
@@ -39,7 +39,7 @@ const Login = () => {
 
   React.useEffect(() => {
     if (isLoggedIn) {
-      navigate("/HomeLogged");
+      navigate("/");
     }
   }, [isLoggedIn, navigate]);
 

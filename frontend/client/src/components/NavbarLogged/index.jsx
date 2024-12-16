@@ -46,9 +46,12 @@ const NavbarLogged = () => {
           <div className="relative">
             <Dropdown>
               <Dropdown.Trigger>
-                <button className="flex justify-center items-center w-full px-4 py-2 text-sm font-medium text-gray-100 bg-black rounded-full shadow-sm focus:outline-none">
-                  <FaRegUserCircle size={20} className="me-2" />
-                  <span className="font-bold">
+                <button
+                  className="flex justify-center items-center w-full px-4 py-2 text-sm font-medium text-gray-100 bg-black rounded-full shadow-sm focus:outline-none max-w-40"
+                  title={localStorage.getItem("name")}
+                >
+                  <FaRegUserCircle size={20} className="flex-shrink-0 me-2" />
+                  <span className="font-bold truncate">
                     {localStorage.getItem("name")}
                   </span>
                 </button>

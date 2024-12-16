@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 const Product = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchProducts = async () => {
     try {
@@ -28,24 +30,33 @@ const Product = () => {
     }
   };
 
+  const filteredProducts = selectedCategory
+    ? products.filter((product) => product.category.name === selectedCategory)
+    : products.filter((product) =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
   useEffect(() => {
     fetchProducts();
     fetchCategories();
   }, []);
   return (
     <div>
-      <NavbarWithAuth /> {/* Add Navbar here */}
-      <Dropdown /> {/* Add Dropdown here */}
-      {/* Product Grid Section */}
+      <NavbarWithAuth />
+      <Dropdown />
       <div className="container">
         <div className="flex space-x-5">
           <input
             type="text"
-            className="rounded-full"
+            className="rounded-full px-3"
             placeholder="Looking for..."
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <select className="border rounded h-11 px-3">
-            <option selected>Select category</option>
+          <select
+            className="border rounded-full h-11 px-3"
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="">Select category</option>
             {categories.map((item, index) => (
               <option key={index} value={item.name}>
                 {item.name}
@@ -54,7 +65,7 @@ const Product = () => {
           </select>
         </div>
         <div className="product-grid">
-          {products.map((product, index) => (
+          {filteredProducts.map((product, index) => (
             <Link
               to={`/ProductDetail/${product.id}`}
               key={index}

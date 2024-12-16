@@ -32,7 +32,14 @@ const Order = {
       const createdOrders = [];
 
       for (const order of orders) {
-        const { userId, productId, quantity, totalAmount } = order;
+        const {
+          userId,
+          productId,
+          quantity,
+          totalAmount,
+          usePoints,
+          pointsUsed,
+        } = order;
 
         const userExists = await prisma.user.findUnique({
           where: { id: parseInt(userId) },
@@ -54,12 +61,31 @@ const Order = {
             .json({ message: `Product with ID ${productId} does not exist` });
         }
 
+        if (usePoints) {
+          const user = await prisma.user.findUnique({
+            where: { id: parseInt(userId) },
+          });
+
+          if (user.point < pointsUsed) {
+            return res.status(400).json({ message: "Not enough points" });
+          }
+
+          await prisma.point.create({
+            data: {
+              userId: parseInt(userId),
+              value: -pointsUsed,
+            },
+          });
+        }
+
         const newOrder = await prisma.order.create({
           data: {
             userId: parseInt(userId),
             productId,
             quantity,
             totalAmount,
+            usePoints,
+            pointsUsed,
           },
         });
 

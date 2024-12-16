@@ -8,6 +8,7 @@ import axiosInstance from "../../../axiosInstance";
 const Point = () => {
   const [point, setPoint] = React.useState({ points: [], totalPoint: 0 });
   const userId = Number(localStorage.getItem("userId")) || 0;
+  const [vouchers, setVouchers] = React.useState([]);
 
   const copied = (text) => {
     navigator.clipboard
@@ -29,8 +30,29 @@ const Point = () => {
     }
   };
 
+  const fetchVouchers = async () => {
+    try {
+      const vouchers = await axiosInstance.get(`/voucher/${userId}`);
+      setVouchers(vouchers.data);
+      console.log(vouchers.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const formatRupiah = (amount) => {
+    const formatter = new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+    return formatter.format(amount);
+  };
+
   React.useEffect(() => {
     fetchPoint();
+    fetchVouchers();
   }, []);
 
   return (
@@ -61,26 +83,26 @@ const Point = () => {
 
         <div className="available-coupons">
           <h1 className="text-2xl">Available Coupons</h1>
-          <div className="coupon">
-            <span>Rp50.000</span>
-            <input type="text" value="rwrd456" readOnly />
-            <button className="myButton" onClick={() => copied("rwrd456")}>
-              Copy
-            </button>
-          </div>
-          <hr />
-          <div className="coupon">
-            <span>Rp50.000</span>
-            <input type="text" value="rwrd456" readOnly />
-            <button className="myButton" onClick={() => copied("rwrd456")}>
-              Copy
-            </button>
-          </div>
+          {vouchers.map((voucher, index) => (
+            <>
+              <div key={index} className="coupon">
+                <span>{formatRupiah(voucher.discount)}</span>
+                <input type="text" value={voucher.name} readOnly />
+                <button
+                  className="myButton"
+                  onClick={() => copied(voucher.name)}
+                >
+                  Copy
+                </button>
+              </div>
+              <hr />
+            </>
+          ))}
         </div>
       </main>
       <main className="max-w-4xl mx-auto">
         <section className="redeem-rewards">
-          <h4>Redeem Points For Rewards</h4>
+          <h1 className="text-2xl font-bold">Redeem Points For Rewards</h1>
           <div className="reward-images">
             <img src="/images/img/keyring.png" alt="Reward 1" />
             <img src="/images/img/Ballcap.png" alt="Reward 2" />

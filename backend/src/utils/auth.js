@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import randomstring from "randomstring";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -16,7 +17,7 @@ export const Register = async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
   // create new user to database
-  await prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       name,
       email,
@@ -26,13 +27,22 @@ export const Register = async (req, res) => {
     },
   });
 
+  for (let i = 0; i < 2; i++) {
+    await prisma.voucher.create({
+      data: {
+        userId: user.id,
+        name: randomstring.generate(7),
+        discount: 50000,
+      },
+    });
+  }
+
   res.status(201).json({ message: "User registered successfully" });
 };
 
 export const Login = async (req, res) => {
   const { email, password } = req.body;
 
-  // find email by id
   const user = await prisma.user.findUnique({ where: { email } });
 
   if (!user) {

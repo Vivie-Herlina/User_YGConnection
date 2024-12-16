@@ -10,6 +10,9 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const [carts, setCarts] = React.useState([]);
   const [selectedCartItems, setSelectedCartItems] = React.useState([]);
+  const [voucher, setVoucher] = React.useState([]);
+  const [total, setTotal] = React.useState(0);
+  const [messageVoucher, setMessageVoucher] = React.useState();
 
   const userId = localStorage.getItem("userId");
 
@@ -22,9 +25,36 @@ const Cart = () => {
     }
   };
 
+  const handleVoucher = async () => {
+    try {
+      const checkVoucher = await axiosInstance.get(`/voucher/${userId}`);
+      const validVoucher = checkVoucher.data.find(
+        (vouchers) => vouchers.name === voucher
+      );
+
+      if (validVoucher) {
+        const discount = validVoucher.discount;
+        setTotal((prevTotal) => prevTotal - discount);
+        setMessageVoucher(`You get a discount of Rp.${discount}`);
+      } else {
+        setMessageVoucher("Voucher is not valid or has expired");
+      }
+    } catch (error) {
+      console.error("Failed to check voucher", error);
+    }
+  };
+
   React.useEffect(() => {
     fetchCarts();
   }, []);
+
+  React.useEffect(() => {
+    const newTotal = carts.reduce(
+      (acc, item) => acc + item.product.price * item.quantity,
+      0
+    );
+    setTotal(newTotal);
+  }, [carts]);
 
   const handleCheckboxChange = (cartItem, isChecked) => {
     setSelectedCartItems((prevSelected) =>
@@ -61,27 +91,27 @@ const Cart = () => {
   };
 
   const handleCheckout = async () => {
-    const selectedCartDetails = selectedCartItems.map((item) => ({
-      userId,
-      productId: item.product.id,
-      quantity: item.quantity,
-      totalAmount: item.product.price * item.quantity,
-    }));
+    const selectedCartDetails = selectedCartItems.map((item) => {
+      const discount =
+        item.product.price *
+        item.quantity *
+        (voucher ? validVoucher.discount / 100 : 0);
+      const totalAmount = item.product.price * item.quantity - discount;
+      return {
+        userId,
+        productId: item.product.id,
+        quantity: item.quantity,
+        totalAmount,
+      };
+    });
 
     try {
-      const response = await axiosInstance.post("/order", selectedCartDetails);
-      console.log(response.data);
-      // window.location.href = `/checkout/${userId}`;
+      await axiosInstance.post("/order", selectedCartDetails);
     } catch (error) {
       console.error("Failed to process checkout", error);
       alert("Checkout failed. Please try again.");
     }
   };
-
-  const total = carts.reduce(
-    (acc, item) => acc + item.product.price * item.quantity,
-    0
-  );
 
   return (
     <div>
@@ -153,6 +183,29 @@ const Cart = () => {
             </div>
           </div>
         ))}
+
+        <div className="flex space-x-2 mt-3">
+          <input
+            type="text"
+            className="p-2 flex-1"
+            value={voucher}
+            placeholder="Insert voucher"
+            onChange={(e) => setVoucher(e.target.value)}
+          />
+          <button
+            type="button"
+            onClick={handleVoucher}
+            className="bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            Check
+          </button>
+        </div>
+
+        {messageVoucher && (
+          <div>
+            <span>{messageVoucher}</span>
+          </div>
+        )}
 
         <div className="flex justify-between items-center mt-6 p-4 bg-black text-white rounded-md">
           <p>
