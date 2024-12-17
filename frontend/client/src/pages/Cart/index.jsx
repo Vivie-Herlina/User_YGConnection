@@ -91,11 +91,16 @@ const Cart = () => {
   };
 
   const handleCheckout = async () => {
+    const checkVoucher = await axiosInstance.get(`/voucher/${userId}`);
+    const validVoucher = checkVoucher.data.find(
+      (vouchers) => vouchers.name === voucher
+    );
+
     const selectedCartDetails = selectedCartItems.map((item) => {
       const discount =
         item.product.price *
         item.quantity *
-        (voucher ? validVoucher.discount / 100 : 0);
+        (validVoucher ? validVoucher.discount / 100 : 0);
       const totalAmount = item.product.price * item.quantity - discount;
       return {
         userId,

@@ -60,7 +60,6 @@ const Product = {
     if (!id) {
       return res.status(400).json({ message: "product id not found" });
     }
-    console.log("ada");
 
     try {
       const product = await prisma.product.findUnique({
