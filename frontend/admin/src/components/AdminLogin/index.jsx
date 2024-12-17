@@ -66,10 +66,12 @@ const LoginForm = () => {
         </form>
         <div className="">
           <p>
-            Already have an account?{" "}
-            <Link to="/Login" className="text-blue-500">
-              Log In
+            <div className="flex justify-center items-center mt-3">
+            Don&apos;t have an account?{" "}
+            <Link to="/register" className="text-blue-500 text-center">
+              Sign up
             </Link>
+            </div>
           </p>
         </div>
       </div>
